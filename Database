@@ -1,0 +1,16 @@
+import sqlite3
+
+# Connect to the database
+conn = sqlite3.connect('example.db')
+cur = conn.cursor()
+
+# Query the database to retrieve all customers
+cur.execute("SELECT * FROM customers")
+rows = cur.fetchall()
+
+# Print the results
+for row in rows:
+    print(f"ID: {row[0]}, Name: {row[1]}, Email: {row[2]}")
+
+# Close the connection
+conn.close()
